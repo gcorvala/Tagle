@@ -1,18 +1,22 @@
 class Log {
 	private List<string> logList;
-	
+	public signal void logInserted(string str);
+
 	public Log() {
 		logList = new List<string>();
 	}
 
 	public void insert(string str) {
 		logList.append(str);
+		logInserted(str);
 	}
 	
-	// For testing purposes
-	public void printList() {
-		logList.foreach((elem) => {stdout.printf("%s\n", (string)elem);});
-	}
+	// // For testing purposes
+	// public void printList() {
+	// 	logList.foreach((elem) => {
+	// 			stdout.printf("%s\n", (string)elem);
+	// 		});
+	// }
 	
 	// public static void main() {
 	// 	Log ha = new Log();
