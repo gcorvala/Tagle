@@ -13,6 +13,8 @@ class Tagle.Logger : Object {
 
 	private List<LogEntry> log;
 
+  public signal void logInserted(string str);
+
 	public Logger () {
 		log = new List<LogEntry> ();
 	}
@@ -22,6 +24,7 @@ class Tagle.Logger : Object {
 	  entry.message = message;
 	  entry.type = type;
 		log.append (entry);
+		logInserted (message);
 	}
 
 	public void print () {

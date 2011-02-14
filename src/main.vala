@@ -14,7 +14,7 @@ static int main (string[] args) {
         var window = builder.get_object ("window1") as Window;
 
 		// Logger and signal connection
-		var log = new Log();
+		var log = new Tagle.Logger ();
 		var logviewer = builder.get_object("logView") as TextView;
 		logviewer.editable = false;
 		logviewer.cursor_visible = false;
