@@ -1,14 +1,6 @@
 using Gtk;
 using Config;
- 
-public static void on_button1_clicked (Button source) {
-    source.label = "Thank you!";
-}
- 
-public static void on_button2_clicked (Button source) {
-    source.label = "Thanks!";
-}
- 
+
 static int main (string[] args) {     
     Gtk.init (ref args);
  
@@ -30,7 +22,11 @@ static int main (string[] args) {
 		log.logInserted.connect((str) => {
 				logviewer.buffer.text += str + "\n";
 			});
-		log.insert("this is an event inserted\n");
+		log.insert("this is an event inserted");
+
+		// button connect to test the logger
+		var saveButton = builder.get_object("saveButton") as ToolButton;
+		saveButton.clicked.connect(() => { log.insert("save button has been clicked"); });
 
 		// Show everyting and launch gtk.main()
         window.show_all ();
