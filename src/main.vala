@@ -23,7 +23,7 @@ static int main (string[] args) {
 
 		// Logger and signal connection
 		var log = new Log();
-		var logviewer = builder.get_object("logviewer") as TextView;
+		var logviewer = builder.get_object("logView") as TextView;
 		logviewer.editable = false;
 		logviewer.cursor_visible = false;
 		logviewer.buffer.text = "oh hai\n";
