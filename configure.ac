@@ -1,6 +1,8 @@
 AC_INIT([Tagle], 1.0)
 AM_INIT_AUTOMAKE
 
+AM_CONFIG_HEADER(tagle-config.h)
+
 AM_PROG_VALAC([0.10.0])
 AC_PROG_CC
 
@@ -23,5 +25,6 @@ AC_SUBST(TAGLE_GTK_LIBS)
 
 AC_OUTPUT([
 Makefile
+data/Makefile
 src/Makefile
 ])

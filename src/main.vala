@@ -1,6 +1,6 @@
 using Gtk;
-
-
+using Config;
+ 
 public static void on_button1_clicked (Button source) {
     source.label = "Thank you!";
 }
@@ -15,7 +15,7 @@ static int main (string[] args) {
     try {
 		// Builder
         var builder = new Builder ();
-        builder.add_from_file ("../data/tagle-main-window.ui");
+        builder.add_from_file (GLib.Path.build_filename (Config.PACKAGE_DATADIR, "tagle-main-window.ui"));
         builder.connect_signals (null);
 
 		// Window
