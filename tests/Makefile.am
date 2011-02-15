@@ -10,7 +10,8 @@ AM_CPPFLAGS = \
 
 noinst_PROGRAMS = tagle-id3-test
 
-tagle_id3_test_SOURCES = tagle-id3-test.vala
+tagle_id3_test_SOURCES = tagle-id3-test.vala \
+	$(top_srcdir)/src/tagle-id3.vala
 
 LDADD = \
 	$(TAGLE_LIBS) \
