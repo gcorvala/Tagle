@@ -1,6 +1,4 @@
 VALAFLAGS =	\
-	--vapidir vapi	\
-	--pkg config		\
 	--pkg gtk+-2.0	\
 	--pkg gmodule-2.0
 
@@ -10,12 +8,10 @@ AM_CPPFLAGS = \
 	$(TAGLE_GTK_CFLAGS)											\
 	-include $(CONFIG_HEADER)
 
-bin_PROGRAMS = tagle		
+noinst_PROGRAMS = tagle-id3-test
 
-tagle_SOURCES = main.vala \
-	tagle-logger.vala				\
-	tagle-id3.vala
+tagle_id3_test_SOURCES = tagle-id3-test.vala
 
-tagle_LDADD = \
+LDADD = \
 	$(TAGLE_LIBS) \
 	$(TAGLE_GTK_LIBS)

@@ -27,4 +27,5 @@ AC_OUTPUT([
 Makefile
 data/Makefile
 src/Makefile
+tests/Makefile
 ])
