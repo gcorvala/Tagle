@@ -2,40 +2,18 @@ using Gtk;
 using Config;
 
 static int main (string[] args) {     
-    Gtk.init (ref args);
- 
-    try {
-		// Builder
-        var builder = new Builder ();
-        builder.add_from_file (GLib.Path.build_filename (Config.PACKAGE_DATADIR, "tagle-main-window.ui"));
-        builder.connect_signals (null);
+  Gtk.init (ref args);
 
-		// Window
-        var window = builder.get_object ("window1") as Window;
+  try {
+    var window = new Tagle.Window ();
 
-		// Logger and signal connection
-		var log = new Tagle.Logger ();
-		var logviewer = builder.get_object("logView") as TextView;
-		logviewer.editable = false;
-		logviewer.cursor_visible = false;
-		logviewer.buffer.text = "oh hai\n";
-		log.logInserted.connect((str) => {
-				logviewer.buffer.text += str + "\n";
-			});
-		log.insert("this is an event inserted");
+    window.show_all ();
+    window.destroy.connect (Gtk.main_quit);
 
-		// button connect to test the logger
-		var saveButton = builder.get_object("saveButton") as ToolButton;
-		saveButton.clicked.connect(() => { log.insert("save button has been clicked"); });
-
-		// Show everyting and launch gtk.main()
-        window.show_all ();
-        window.destroy.connect (Gtk.main_quit);
-        Gtk.main ();
-    } catch (Error e) {
-        stderr.printf ("Could not load UI: %s\n", e.message);
-        return 1;
-    } 
- 
-    return 0;
+    Gtk.main ();
+  } catch (Error e) {
+    stderr.printf ("Could not load UI: %s\n", e.message);
+    return 1;
+  }
+  return 0;
 }

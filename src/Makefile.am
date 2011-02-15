@@ -14,7 +14,8 @@ bin_PROGRAMS = tagle
 
 tagle_SOURCES = main.vala \
 	tagle-logger.vala				\
-	tagle-id3.vala
+	tagle-id3.vala \
+	tagle-window.vala
 
 tagle_LDADD = \
 	$(TAGLE_LIBS) \
