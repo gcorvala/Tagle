@@ -40,12 +40,4 @@ class Tagle.Logger : Object {
 		  }
 	    stdout.printf (msg + entry.message + "\n"); });
 	}
-	
-	/*public static void main () {
-    var ha = new Logger ();
-    ha.insert ("this");
-    ha.insert ("and that", LogType.MESSAGE);
-    ha.insert ("and also this", LogType.ERROR);
-    ha.print ();
-	}*/
 }

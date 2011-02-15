@@ -14,7 +14,7 @@ void add_id3_tests () {
       assert (id3.album == "Album");
       assert (id3.year == 2003);
       assert (id3.comment == "Comment");
-      assert (id3.genre == 7);
+      assert (id3.genre == Tagle.Id3.Genre.HIP_HOP);
     } catch (Error e) { print ("!!! %s !!!\n", e.message); };
   });
   Test.add_func ("/tagle/id3/002", () => {
@@ -26,7 +26,8 @@ void add_id3_tests () {
       assert (id3.album == "Album");
       assert (id3.year == 2003);
       assert (id3.comment == "Comment");
-      assert (id3.genre == 7);
+      assert (id3.genre == Tagle.Id3.Genre.HIP_HOP);
+      assert (id3.track == 12);
     } catch (Error e) { print ("!!! %s !!!\n", e.message); };
   });
 }
