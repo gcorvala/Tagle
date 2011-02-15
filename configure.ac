@@ -1,4 +1,4 @@
-AC_INIT([Tagle], 1.0)
+AC_INIT([Tagle], 0.0.1)
 AM_INIT_AUTOMAKE
 
 AM_CONFIG_HEADER(tagle-config.h)
