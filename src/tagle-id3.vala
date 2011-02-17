@@ -1,14 +1,16 @@
 using GLib;
 
 namespace Tagle {
-  class Id3 : Object {
-    public enum Version {
-      ID3_1,
-      ID3_1_1,
-      ID3_1_EXT,
-      ID3_2
-    }
+  enum TagVersion {
+    ID3_V1,
+    ID3_V1_1,
+    ID3_V1_EXT,
+    ID3_V2_2_0,
+    ID3_V2_3_0,
+    ID3_V2_4_0
+  }
 
+  class Id3 : Object {
     public enum Genre {
       BLUES, CLASSIC_ROCK, COUNTRY, DANCE, DISCO, FUNK, GRUNGE, HIP_HOP,
       JAZZ, METAL, NEW_AGE, OLDIES, OTHER, POP, RNB, RAP,
@@ -23,7 +25,7 @@ namespace Tagle {
     public string comment { get; set; }
     public Genre genre { get; set; }
     public uint8 track { get; set; }
-    public Version version { get; set; }
+    public TagVersion version { get; set; }
     public int speed { get; set; }
 		
   	public Id3 (string path) throws Error {
@@ -40,16 +42,16 @@ namespace Tagle {
       comment = (string) buffer[97:127];
       genre = (Genre) buffer[127];
       if (buffer[125] == 0 && buffer[126] != 0) {
-        version = Version.ID3_1_1;
+        version = TagVersion.ID3_V1_1;
         track = buffer[126];
       }
       else
-        version = Version.ID3_1;
+        version = TagVersion.ID3_V1;
       buffer = new uint8[227];
       input_stream.seek (-227-128, SeekType.END);
       if (input_stream.read (buffer) != 227) throw new IOError.FAILED ("aie3");
       if (buffer[0] == 'T' && buffer[1] == 'A' && buffer[2] == 'G' && buffer[2] == '+') {
-        version = Version.ID3_1_EXT;
+        version = TagVersion.ID3_V1_EXT;
         title += (string) buffer[4:64];
         artist += (string) buffer[64:124];
         album += (string) buffer[124:184];

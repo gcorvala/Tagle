@@ -8,7 +8,7 @@ void add_id3_tests () {
   Test.add_func ("/tagle/id3/001", () => {
     try {
       var id3 = new Tagle.Id3 ("tests/id3v1_001_basic.mp3");
-      assert (id3.version == Tagle.Id3.Version.ID3_1);
+      assert (id3.version == Tagle.TagVersion.ID3_V1);
       assert (id3.title == "Title");
       assert (id3.artist == "Artist");
       assert (id3.album == "Album");
@@ -20,7 +20,7 @@ void add_id3_tests () {
   Test.add_func ("/tagle/id3/002", () => {
     try {
       var id3 = new Tagle.Id3 ("tests/id3v1_002_basic.mp3");
-      assert (id3.version == Tagle.Id3.Version.ID3_1_1);
+      assert (id3.version == Tagle.TagVersion.ID3_V1_1);
       assert (id3.title == "Title");
       assert (id3.artist == "Artist");
       assert (id3.album == "Album");

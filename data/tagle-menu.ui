@@ -1,0 +1,16 @@
+<ui>
+  <menubar>
+    <menu name="Menu1" action="Action">
+      <menuitem name="Item1" action="Action" />
+    </menu>
+    <menu name="Menu2" action="Action">
+      <menuitem name="Item2" action="Action"/>
+      <menuitem name="Item3" action="Action"/>
+    </menu>
+  </menubar>
+  
+  <toolbar name="Toolbar" action="Action">
+    <toolitem name="Item4" action="Action"/>
+    <toolitem name="Item5" action="Action"/>
+  </toolbar>
+</ui>
